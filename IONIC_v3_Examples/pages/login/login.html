@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-navbar>
+    <button start ion-button menuToggle class="menu-button">
+      <ion-icon name="menu" class="menu-button-icon"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="login">
+  <div>
+    <h2>LOGOWANIE</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onFormSubmit()">
+      <div>
+        <input type="text" placeholder="Adres e-mail" value="{{user}}" formControlName="email" id="email" required />
+      </div>
+      <div class="validation-messages"
+        *ngIf="loginForm.controls.email.hasError('required') && (loginForm.controls.email.touched||loginForm.controls.email.dirty) ">
+        Pole nie może być puste </div>
+      <div>
+        <input [type]="passwordField.type" placeholder="Hasło" formControlName="password" id="password" required />
+      </div>
+      <div class="validation-messages" *ngIf="loginForm.controls.password.hasError('pattern')
+           && (loginForm.controls.password.touched||loginForm.controls.password.dirty) "> Hasło musi posiadać od 8 do
+        60 znaków</div>
+      <div class="validation-messages" *ngIf="loginForm.controls.password.hasError('required')
+           && (loginForm.controls.password.touched||loginForm.controls.password.dirty) "> Pole nie może być puste
+      </div>
+      <div class="checkbox">
+        <ion-checkbox class="checkbox-element" checked="{{isRemeberMeSelected}}" (click)="remeberMeClicked()">
+        </ion-checkbox>
+        <label>
+          <span>Zapamiętaj mnie</span>
+        </label>
+      </div>
+      <button class="btn" [disabled]="disabled" type="submit">
+        Zaloguj się
+      </button>
+      <div class="spacer" style="height:20px;"></div>
+      <button class="btn" on-click="openRegisterForm()">
+        Rejestracja
+      </button>
+    </form>
+  </div>
+</ion-content>
