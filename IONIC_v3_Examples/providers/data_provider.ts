@@ -88,6 +88,6 @@ export class DataProvider {
       this.user = value;
       this.events.publish('data_provider:last_user:loaded');
     })
-      .catch(() => console.log(this.tag + 'Error getting last user'));
+      .catch(() => console.log(this.tag + 'error getting last user'));
   }
 }

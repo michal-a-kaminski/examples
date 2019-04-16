@@ -125,7 +125,7 @@ export class UserInterfaceProvider {
       message: msg,
       position: 'bottom',
       dismissOnPageChange: true,
-      duration: 900,
+      duration: 800,
     });
     toast.onDidDismiss(() => {
       console.log(this.tag + 'Dismissed toast');
